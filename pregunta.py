@@ -11,12 +11,7 @@ import pandas as pd
 
 def clean_data():
 
-    df = pd.read_csv("solicitudes_credito.csv", sep=";")
-
-    df.rename(columns={
-    "Unnamed: 0": "indice"
-    }, inplace=True)
-    df.set_index("indice", inplace=True)
+    df = pd.read_csv("solicitudes_credito.csv", sep=";").drop(columns=['Unnamed: 0'])
 
     # Eliminando datos faltantes....
     df.dropna(inplace=True)
